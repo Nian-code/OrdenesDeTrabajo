@@ -2,12 +2,12 @@ public class Client {
     public static int id = 0;
     private int ID;
     private String lastname;
-    private long tell;
+    private String tell;
     private String Address;
     private String latitud;
     private String longitud;
 
-    Client(String name, long tell, String address){
+    Client(String name, String tell, String address){
         this.ID = id;
         this.name = name;
         this.tell = tell;
@@ -15,7 +15,7 @@ public class Client {
         id++;
     }
 
-    Client(String name, String lastname, long tell, String address){
+    Client(String name, String lastname, String tell, String address){
         this.ID = id;
         this.name = name;
         this.lastname = lastname;
@@ -24,7 +24,7 @@ public class Client {
         id++;
     }
 
-    Client(String name, long tell, String address,String latitud, String longitud ){
+    Client(String name, String tell, String address,String latitud, String longitud ){
         this.ID = id;
         this.name = name;
         this.tell = tell;
@@ -34,7 +34,7 @@ public class Client {
         id++;
     }
 
-    Client(String name, String lastname, long tell, String address, String latitud, String longitud){
+    Client(String name, String lastname, String tell, String address, String latitud, String longitud){
         this.ID = id;
         this.name = name;
         this.lastname = lastname;
@@ -56,7 +56,7 @@ public class Client {
         return lastname;
     }
 
-    public long getTell() {
+    public String getTell() {
         return tell;
     }
 
@@ -82,13 +82,14 @@ public class Client {
         this.lastname = lastname;
     }
 
-    public void setTell(long tell) {
+    public String setTell(String tell) {
         if (tell.length() != 10) {
-            return "Error"
+            return "Error";
         } else {
             this.tell = tell;
         }
 
+        return tell;
     }
 
     public void setAddress(String address) {

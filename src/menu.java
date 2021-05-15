@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class menu {
 
-    public static void ShowMenu(ArrayList Engineers){
+    public static void ShowMenu(ArrayList Engineers, ArrayList Tecnics, ArrayList Clients, ArrayList Orders){
         System.out.println("\n*~~~~~~~* *~~~~~~~* *~~~~~~~* *~~~~~~~*");
         System.out.println("Welcome, Create a OrderWork ");
         System.out.println("*~~~~~~~* *~~~~~~~* *~~~~~~~* *~~~~~~~* \n");
@@ -16,12 +16,20 @@ public class menu {
             System.out.println("[1] Create order work");
             System.out.println("[2] Change Engineer");
             System.out.println("[3] Create Engineer");
+            System.out.println("[4] Show orders");
             System.out.println("[9] Salir");
 
             Scanner re = new Scanner(System.in);
-            response = Integer.valueOf(re.nextLine());
-
+            try{
+                response = Integer.valueOf(re.nextLine());
+            }
+            catch (NumberFormatException e){
+                break;
+            }
             switch (response){
+                case 1:
+                    crearOrderWork(actual, Tecnics, Clients, Orders);
+                    break;
                 case 2:
                     int id = changeEngineer(Engineers);
                     actual = (Engineer) Engineers.get(id);
@@ -29,6 +37,10 @@ public class menu {
                 case 3:
                     createEngineer(Engineers);
                     break;
+                case 4:
+                    showOrders(Orders);
+                    break;
+
                 case 9:
                     System.out.println("Thanks!");
                     break;
@@ -40,6 +52,48 @@ public class menu {
         Scanner menu = new Scanner(System.in);
     }
 
+    private static void addOrder(ArrayList Orders, OrderWork order){
+        Orders.add(order);
+    }
+
+    private static void  showOrders(ArrayList Orders){
+        for (int x = 0; x < Orders.size(); x++){
+            OrderWork j = (OrderWork) Orders.get(x);
+            System.out.println(
+                                "\nDate" + j.getDate() +
+                                "\nID: "+ j.getOrderID() + " " +
+                               "\nName client: " + j.getClientName() +
+                                "\nName Tecnic: "  + j.getTecnicName() +
+                                "\nName Engineer: " + j.getEngineerName());
+        }
+        System.out.println("\n");
+    }
+
+    private static void crearOrderWork(Engineer actual, ArrayList Tecnics, ArrayList Clients, ArrayList Orders){
+
+        for (int x = 0; x < Tecnics.size(); x++){
+            Tecnic j = (Tecnic) Tecnics.get(x);
+            System.out.println("ID: "+ j.getID() + " " + j.getName());
+        }
+        System.out.print("Select one ID del tecnico: ");
+
+        int response;
+        Scanner t = new Scanner(System.in);
+        response = Integer.valueOf(t.next());
+
+        for (int x = 0; x < Clients.size(); x++){
+            Client j = (Client) Clients.get(x);
+            System.out.println("ID: "+ j.getID() + " " + j.getName() + " " + j.getLastname());
+        }
+        System.out.print("Select one ID del cliente: ");
+
+        int response1;
+        Scanner t1 = new Scanner(System.in);
+        response1 = Integer.valueOf(t1.next());
+
+        OrderWork order = new OrderWork((Tecnic) Tecnics.get(response), (Client) Clients.get(response1), actual);
+        addOrder(Orders, order);
+    }
     private static void createEngineer(ArrayList Engineers) {
         Scanner re = new Scanner(System.in);
         System.out.print("Name engineer: ");
