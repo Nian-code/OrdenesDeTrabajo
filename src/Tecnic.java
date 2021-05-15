@@ -55,6 +55,15 @@ public class Tecnic {
     public void setTel(String tel) {
         this.tel = tel;
     }
+
+    @Override
+    public String toString() {
+        return  "ID= " + ID + " " +
+                "name= '" + name + '\'' +
+                ", lastname= '" + lastname + '\'' +
+                ", tel= '" + tel + '\'' +
+                "\n";
+    }
 }
 
 

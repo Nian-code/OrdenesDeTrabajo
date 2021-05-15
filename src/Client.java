@@ -104,4 +104,16 @@ public class Client {
         this.longitud = longitud;
     }
 
+    @Override
+    public String toString() {
+        return
+                "ID=" + ID +
+                ", lastname='" + lastname + '\'' +
+                ", tell='" + tell + '\'' +
+                ", Address='" + Address + '\'' +
+                ", latitud='" + latitud + '\'' +
+                ", longitud='" + longitud + '\'' +
+                ", name='" + name + '\'' +
+                "}\n";
+    }
 }

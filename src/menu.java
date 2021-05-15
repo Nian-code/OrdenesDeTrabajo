@@ -31,7 +31,7 @@ public class menu {
                     crearOrderWork(actual, Tecnics, Clients, Orders);
                     break;
                 case 2:
-                    int id = changeEngineer(Engineers);
+                    int id = showItems(Engineers);
                     actual = (Engineer) Engineers.get(id);
                     break;
                 case 3:
@@ -57,40 +57,12 @@ public class menu {
     }
 
     private static void  showOrders(ArrayList Orders){
-        for (int x = 0; x < Orders.size(); x++){
-            OrderWork j = (OrderWork) Orders.get(x);
-            System.out.println(
-                                "\nDate" + j.getDate() +
-                                "\nID: "+ j.getOrderID() + " " +
-                               "\nName client: " + j.getClientName() +
-                                "\nName Tecnic: "  + j.getTecnicName() +
-                                "\nName Engineer: " + j.getEngineerName());
-        }
-        System.out.println("\n");
+        System.out.println(Orders.toString());
     }
 
     private static void crearOrderWork(Engineer actual, ArrayList Tecnics, ArrayList Clients, ArrayList Orders){
-
-        for (int x = 0; x < Tecnics.size(); x++){
-            Tecnic j = (Tecnic) Tecnics.get(x);
-            System.out.println("ID: "+ j.getID() + " " + j.getName());
-        }
-        System.out.print("Select one ID del tecnico: ");
-
-        int response;
-        Scanner t = new Scanner(System.in);
-        response = Integer.valueOf(t.next());
-
-        for (int x = 0; x < Clients.size(); x++){
-            Client j = (Client) Clients.get(x);
-            System.out.println("ID: "+ j.getID() + " " + j.getName() + " " + j.getLastname());
-        }
-        System.out.print("Select one ID del cliente: ");
-
-        int response1;
-        Scanner t1 = new Scanner(System.in);
-        response1 = Integer.valueOf(t1.next());
-
+        int response = showItems(Tecnics);
+        int response1 = showItems(Clients);
         OrderWork order = new OrderWork((Tecnic) Tecnics.get(response), (Client) Clients.get(response1), actual);
         addOrder(Orders, order);
     }
@@ -101,24 +73,18 @@ public class menu {
         Engineer engineer = new Engineer(response);
         Engineers.add(engineer);
     }
-
-    private static int changeEngineer(ArrayList Engineers) {
-        for (int x = 0; x < Engineers.size(); x++){
-            Engineer j = (Engineer) Engineers.get(x);
-            System.out.println("ID: "+ j.getID() + " " + j.getName());
-        }
+    private static int showItems(ArrayList Array){
+        System.out.println(Array.toString());
         System.out.print("Select one ID: ");
 
         int response;
         Scanner re = new Scanner(System.in);
         response = Integer.valueOf(re.nextLine());
 
-        if (response > Engineers.size() -1) {
+        if (response > Array.size() -1) {
             System.out.println("Select one correct");
-            changeEngineer(Engineers);
+            showItems(Array);
         }
         return response;
     }
-
-
 }

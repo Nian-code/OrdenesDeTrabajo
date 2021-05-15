@@ -34,5 +34,9 @@ public class Engineer {
 
     }
 
-
+    @Override
+    public String toString() {
+        return "ID= " + ID + " " +
+                "name='" + name ;
+    }
 }

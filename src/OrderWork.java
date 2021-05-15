@@ -89,4 +89,18 @@ public class OrderWork {
     public void setTecnicName(String tecnicName) {
         this.tecnicName = tecnicName;
     }
+
+    @Override
+    public String toString() {
+        return "OrderWork{" +
+                "date=" + date +
+                ", EngineerName='" + EngineerName + '\'' +
+                ", ClientAdress='" + ClientAdress + '\'' +
+                ", clientTell='" + clientTell + '\'' +
+                ", clientName='" + clientName + '\'' +
+                ", tecnicTel='" + tecnicTel + '\'' +
+                ", tecnicId=" + tecnicId +
+                ", tecnicName='" + tecnicName + '\'' +
+                '}';
+    }
 }
