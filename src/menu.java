@@ -93,7 +93,6 @@ public class menu {
 
         OrderWork order = new OrderWork((Tecnic) Tecnics.get(response), (Client) Clients.get(response1), actual);
         addOrder(Orders, order);
-        System.out.println("Order was create! \n");
     }
     private static void createEngineer(ArrayList Engineers) {
         Scanner re = new Scanner(System.in);
