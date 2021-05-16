@@ -8,17 +8,18 @@ public class Main {
         ArrayList<Client> Clients = new ArrayList<>();
         ArrayList<OrderWork> Orders = new ArrayList<>();
 
-        Engineer Diego = new Engineer("Diego");
-        Engineer Johantan = new Engineer("Jonathan");
-        Engineer Maicol = new Engineer("Maicol");
+        Engineer Diego = new Engineer("Diego", "3177777777");
+        Engineer Johantan = new Engineer("Jonathan", "320000000");
+        Engineer Maicol = new Engineer("Maicol", "3424231111");
 
         Engineers.add(Diego);
         Engineers.add(Johantan);
         Engineers.add(Maicol);
 
-        Tecnic  Sebastian = new Tecnic("Sebastian", "3242313465");
-        Tecnic  Yeison    = new Tecnic("Yeison", "3002343289");
-        Tecnic  Jhon      = new Tecnic("Jhon", "3908238487");
+        String [] tools  = new String[] {"RJ", "Cable"};
+        Tecnic  Sebastian = new Tecnic("Sebastian", "Martinez", "3242313465");
+        Tecnic  Yeison    = new Tecnic("Yeison", "Villa", "3002343289");
+        Tecnic  Jhon      = new Tecnic("Jhon", "Naranja","3908238487", true, tools);
 
         Tecnics.add(Sebastian);
         Tecnics.add(Yeison);

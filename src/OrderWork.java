@@ -20,7 +20,7 @@ public class OrderWork {
         this.EngineerName = Engineer.getName();
         this.tecnicName = Tecnic.getName();
         this.tecnicId   = Tecnic.id;
-        this.tecnicTel  = Tecnic.getTel();
+        this.tecnicTel  = Tecnic.getTell();
         this.clientName = Client.getName();
         this.clientTell = Client.getTell();
         this.ClientAdress = Client.getAddress();
@@ -95,9 +95,9 @@ public class OrderWork {
         return "OrderWork{" +
                 "date=" + date +
                 ", EngineerName='" + EngineerName + '\'' +
-                ", ClientAdress='" + ClientAdress + '\'' +
                 ", clientTell='" + clientTell + '\'' +
                 ", clientName='" + clientName + '\'' +
+                ", ClientAdress='" + ClientAdress + '\'' +
                 ", tecnicTel='" + tecnicTel + '\'' +
                 ", tecnicId=" + tecnicId +
                 ", tecnicName='" + tecnicName + '\'' +

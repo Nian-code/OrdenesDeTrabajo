@@ -1,18 +1,16 @@
-public class Engineer {
+public class Engineer extends personalData{
 
     public static int id = 0;
-    private String name;
     private int ID;
+    private String speciality;
+    private String email;
 
-    Engineer(String name){
-        this.name = name;
+    Engineer(String name, String tell){
+        super(name, tell);
         this.ID   = id;
         id++;
     }
 
-    public String getName() {
-        return name;
-    }
 
     public int getID() {
         return ID;
@@ -36,7 +34,8 @@ public class Engineer {
 
     @Override
     public String toString() {
-        return "ID= " + ID + " " +
-                "name='" + name ;
+        return "ID = " + ID + " " +
+                "name = '" + super.getName() +
+                "lastname = '" + super.getLastname();
     }
 }

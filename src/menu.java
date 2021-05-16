@@ -70,7 +70,9 @@ public class menu {
         Scanner re = new Scanner(System.in);
         System.out.print("Name engineer: ");
         String response = String.valueOf(re.nextLine());
-        Engineer engineer = new Engineer(response);
+        System.out.print("Phone engineer: ");
+        String response1 = String.valueOf(re.nextLine());
+        Engineer engineer = new Engineer(response, response1);
         Engineers.add(engineer);
     }
     private static int showItems(ArrayList Array){
