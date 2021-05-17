@@ -61,12 +61,10 @@ public class Client extends personalData {
     @Override
     public String toString() {
         return
-                "ID= " + ID + ", name='" + super.getName() + '\'' +
-                ", lastname= '" + super.getLastname() + '\'' +
-                ", tell= '" + super.getTell() + '\'' +
+                "ID = " + ID + super.toString() +
                 ", Address= '" + Address + '\'' +
                 ", latitud= '" + latitud + '\'' +
                 ", longitud= '" + longitud + '\'' +
-                "}\n";
+                "\n";
     }
 }

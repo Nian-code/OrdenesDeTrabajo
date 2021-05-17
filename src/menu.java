@@ -38,7 +38,7 @@ public class menu {
                     createEngineer(Engineers);
                     break;
                 case 4:
-                    showOrders(Orders);
+                    System.out.println(Orders);
                     break;
 
                 case 9:
@@ -54,10 +54,6 @@ public class menu {
 
     private static void addOrder(ArrayList Orders, OrderWork order){
         Orders.add(order);
-    }
-
-    private static void  showOrders(ArrayList Orders){
-        System.out.println(Orders.toString());
     }
 
     private static void crearOrderWork(Engineer actual, ArrayList Tecnics, ArrayList Clients, ArrayList Orders){
@@ -76,7 +72,7 @@ public class menu {
         Engineers.add(engineer);
     }
     private static int showItems(ArrayList Array){
-        System.out.println(Array.toString());
+        System.out.println(Array);
         System.out.print("Select one ID: ");
 
         int response;

@@ -37,4 +37,11 @@ public class personalData {
     public void setTell(String tell) {
         this.tell = tell;
     }
+
+    @Override
+    public String toString() {
+        return " name = '" + name + '\'' +
+                ", lastname = '" + lastname + '\'' +
+                ", tell = '" + tell;
+    }
 }

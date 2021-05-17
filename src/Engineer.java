@@ -32,10 +32,26 @@ public class Engineer extends personalData{
 
     }
 
+    public String getSpeciality() {
+        return speciality;
+    }
+
+    public void setSpeciality(String speciality) {
+        this.speciality = speciality;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     @Override
     public String toString() {
-        return "ID = " + ID + " " +
-                "name = '" + super.getName() +
-                "lastname = '" + super.getLastname();
+        return "ID = " + ID + " " + super.toString() +
+                "name = '" + this.getSpeciality() +
+                "lastname = '" + this.getEmail();
     }
 }
