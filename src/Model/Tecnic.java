@@ -1,6 +1,8 @@
+package Model;
+
 import java.util.Arrays;
 
-public class Tecnic extends personalData{
+public class Tecnic extends personalData {
     public static int id = 0;
     private int ID;
 
@@ -9,13 +11,13 @@ public class Tecnic extends personalData{
     private String bonus;
     //Clase anidada como productividad
 
-    Tecnic(String name, String lastname, String tell){
+    public Tecnic(String name, String lastname, String tell){
         super(name, lastname, tell);
         this.ID = id;
         id++;
     }
 
-    Tecnic(String name, String lastname, String tell, boolean disponibiliy, String[] tools){
+    public Tecnic(String name, String lastname, String tell, boolean disponibiliy, String[] tools){
         super(name, lastname, tell);
         this.ID = id;
         this.disponibiliy = disponibiliy;

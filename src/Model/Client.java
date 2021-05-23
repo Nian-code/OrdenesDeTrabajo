@@ -1,3 +1,5 @@
+package Model;
+
 public class Client extends personalData {
     public static int id = 0;
     private int ID;
@@ -7,14 +9,14 @@ public class Client extends personalData {
     private String longitud;
     private double mensualidad;
 
-    Client(String name, String tell, String address){
+    public Client(String name, String tell, String address){
         super(name, tell);
         this.ID = id;
         this.Address = address;
         id++;
     }
 
-    Client(String name, String lastname, String tell, String address){
+    public Client(String name, String lastname, String tell, String address){
         super(name, lastname, tell);
         this.ID = id;
         this.Address = address;
@@ -22,7 +24,7 @@ public class Client extends personalData {
     }
 
 
-    Client(String name, String lastname, String tell, String address, String latitud, String longitud){
+    public Client(String name, String lastname, String tell, String address, String latitud, String longitud){
         super(name, lastname, tell);
         this.ID = id;
         this.latitud = latitud;

@@ -1,3 +1,5 @@
+package Model;
+
 import java.util.Date;
 
 public class OrderWork {
@@ -12,6 +14,7 @@ public class OrderWork {
     String tecnicTel;
     int tecnicId;
     String tecnicName;
+    Boolean status;
 
     public OrderWork(Tecnic Tecnic, Client Client, Engineer Engineer){
         this.date    = new Date();
@@ -19,80 +22,36 @@ public class OrderWork {
         orderNumber++;
         this.EngineerName = Engineer.getName();
         this.tecnicName = Tecnic.getName();
-        this.tecnicId   = Tecnic.id;
+        this.tecnicId   = Tecnic.getID();
         this.tecnicTel  = Tecnic.getTell();
         this.clientName = Client.getName();
         this.clientTell = Client.getTell();
         this.ClientAdress = Client.getAddress();
     }
 
-    public Date getDate() {
-        return date;
-    }
-
     public int getOrderID() {
         return OrderID;
     }
 
-    public String getEngineerName() {
-        return EngineerName;
+    public Date getDate() {
+        return date;
     }
 
-    public void setEngineerName(String engineerName) {
-        EngineerName = engineerName;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
-    public String getClientAdress() {
-        return ClientAdress;
+    public Boolean getStatus() {
+        return status;
     }
 
-    public void setClientAdress(String clientAdress) {
-        ClientAdress = clientAdress;
-    }
-
-    public String getClientTell() {
-        return clientTell;
-    }
-
-    public void setClientTell(String clientTell) {
-        this.clientTell = clientTell;
-    }
-
-    public String getClientName() {
-        return clientName;
-    }
-
-    public void setClientName(String clientName) {
-        this.clientName = clientName;
-    }
-
-    public String getTecnicTel() {
-        return tecnicTel;
-    }
-
-    public void setTecnicTel(String tecnicTel) {
-        this.tecnicTel = tecnicTel;
-    }
-
-    public int getTecnicId() {
-        return tecnicId;
-    }
-
-    public void setTecnicId(int tecnicId) {
-        this.tecnicId = tecnicId;
-    }
-
-    public String getTecnicName() {
-        return tecnicName;
-    }
-
-    public void setTecnicName(String tecnicName) {
-        this.tecnicName = tecnicName;
+    public void setStatus(Boolean status) {
+        this.status = status;
     }
 
     @Override
     public String toString() {
-        return "OrderWork{" +
+        return "Model.OrderWork{" +
                 "date=" + date +
                 ", EngineerName='" + EngineerName + '\'' +
                 ", clientTell='" + clientTell + '\'' +

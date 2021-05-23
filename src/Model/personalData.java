@@ -1,4 +1,6 @@
-public class personalData {
+package Model;
+
+public abstract class personalData {
     private String name;
     private String lastname;
     private String tell;

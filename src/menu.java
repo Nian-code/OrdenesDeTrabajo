@@ -1,15 +1,20 @@
+import Model.Client;
+import Model.Engineer;
+import Model.OrderWork;
+import Model.Tecnic;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class menu {
+    static Engineer actual = Main.Engineers.get(0);
 
-    public static void ShowMenu(ArrayList Engineers, ArrayList Tecnics, ArrayList Clients, ArrayList Orders){
+    public static void ShowMenu(){
         System.out.println("\n*~~~~~~~* *~~~~~~~* *~~~~~~~* *~~~~~~~*");
-        System.out.println("Welcome, Create a OrderWork ");
+        System.out.println("Welcome, Create a Model.OrderWork ");
         System.out.println("*~~~~~~~* *~~~~~~~* *~~~~~~~* *~~~~~~~* \n");
         int i = 0;
         int response;
-        Engineer actual = (Engineer) Engineers.get(0);
         do {
             System.out.println("Actual engineer is: "+ actual.getName());
             System.out.println("\nMenu:");
@@ -28,17 +33,17 @@ public class menu {
             }
             switch (response){
                 case 1:
-                    crearOrderWork(actual, Tecnics, Clients, Orders);
+                    crearOrderWork();
                     break;
                 case 2:
-                    int id = showItems(Engineers);
-                    actual = (Engineer) Engineers.get(id);
+                    int id = showItems(Main.Engineers);
+                    actual = Main.Engineers.get(id);
                     break;
                 case 3:
-                    createEngineer(Engineers);
+                    createEngineer();
                     break;
                 case 4:
-                    System.out.println(Orders);
+                    System.out.println(Main.Orders);
                     break;
 
                 case 9:
@@ -50,38 +55,38 @@ public class menu {
         }while (response !=0 && response != 9);
 
         Scanner menu = new Scanner(System.in);
+
     }
 
-    private static void addOrder(ArrayList Orders, OrderWork order){
-        Orders.add(order);
-    }
+    public static void crearOrderWork(){
+        ArrayList Tecnics = Main.Tecnics;
+        ArrayList Clients = Main.Clients;
 
-    private static void crearOrderWork(Engineer actual, ArrayList Tecnics, ArrayList Clients, ArrayList Orders){
         int response = showItems(Tecnics);
         int response1 = showItems(Clients);
         OrderWork order = new OrderWork((Tecnic) Tecnics.get(response), (Client) Clients.get(response1), actual);
-        addOrder(Orders, order);
+        Main.Orders.add(order);
     }
-    private static void createEngineer(ArrayList Engineers) {
+    private static void createEngineer() {
         Scanner re = new Scanner(System.in);
         System.out.print("Name engineer: ");
         String response = String.valueOf(re.nextLine());
         System.out.print("Phone engineer: ");
         String response1 = String.valueOf(re.nextLine());
         Engineer engineer = new Engineer(response, response1);
-        Engineers.add(engineer);
+        Main.Engineers.add(engineer);
     }
-    private static int showItems(ArrayList Array){
+    private static int showItems(ArrayList Array) {
         System.out.println(Array);
         System.out.print("Select one ID: ");
 
-        int response;
+        int response = 0;
         Scanner re = new Scanner(System.in);
         response = Integer.valueOf(re.nextLine());
 
-        if (response > Array.size() -1) {
+        if (response > Array.size() - 1) {
             System.out.println("Select one correct");
-            showItems(Array);
+            response  = showItems(Array);
         }
         return response;
     }

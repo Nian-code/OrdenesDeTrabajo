@@ -1,11 +1,16 @@
-public class Engineer extends personalData{
+package Model;
+
+import Interfaces.ICliente;
+
+
+public class Engineer extends personalData implements ICliente{
 
     public static int id = 0;
     private int ID;
     private String speciality;
     private String email;
 
-    Engineer(String name, String tell){
+    public Engineer(String name, String tell){
         super(name, tell);
         this.ID   = id;
         id++;
@@ -14,22 +19,6 @@ public class Engineer extends personalData{
 
     public int getID() {
         return ID;
-    }
-
-    public void AgendarTecnico(){
-
-    }
-
-    public void LlamarClientes(){
-
-    }
-
-    public void RecibirOrdenes(){
-
-    }
-
-    public void CrearOrdenes(){
-
     }
 
     public String getSpeciality() {
@@ -52,6 +41,20 @@ public class Engineer extends personalData{
     public String toString() {
         return "ID = " + ID + " " + super.toString() +
                 "name = '" + this.getSpeciality() +
-                "lastname = '" + this.getEmail();
+                "lastname = '" + this.getEmail()+
+                "\n";
     }
+
+
+    public void LlamarClientes(Client client) {
+        System.out.println("Llamando a " + client.getName());
+    }
+
+
+    public void RecibirOrdenes(OrderWork orderWork) {
+        orderWork.setStatus(true);
+        System.out.println("Order ID: " + orderWork.getOrderID() + " was recibed");
+    }
+
+
 }
